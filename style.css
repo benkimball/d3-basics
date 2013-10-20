@@ -1,0 +1,6 @@
+body {
+  text-rendering: optimizeLegibility;
+}
+.chart {
+  shape-rendering: crispEdges;
+}
