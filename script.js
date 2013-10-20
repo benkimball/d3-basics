@@ -3,7 +3,7 @@ var data = rnd_hist([
 ]);
 
 d3.select("body").selectAll(".category")
-    .data(data)
+    .data(data.sort(category_order))
   .enter().append("p")
     .attr("class", "category")
     .html(function(d) {
@@ -17,4 +17,10 @@ function rnd_hist(labels) {
     hist.push({category:label, count:ct});
   });
   return(hist);
+}
+
+function category_order(a, b) {
+  if(a.category > b.category) return 1;
+  else if(a.category < b.category) return -1;
+  return 0;
 }
