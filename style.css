@@ -1,6 +1,20 @@
 body {
   text-rendering: optimizeLegibility;
 }
-.chart {
+.plot {
   shape-rendering: crispEdges;
+}
+h1 {
+  font-family: sans-serif;
+  font-weight: normal;
+  color: #444;
+}
+
+/*
+ * This rule applies to an SVG element, and therefore needs to use SVG
+ * attributes.
+ */
+.category {
+  fill: steelblue;
+  stroke: black;
 }
