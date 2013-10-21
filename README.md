@@ -24,3 +24,7 @@ We've got a lot of magic numbers in our script. Each bar is a fixed height and p
 Step 6: Margins
 
 So far I've been ignoring the fact that this histogram is useless; it doesn't tell us which category is represented by which bar. There are a number of ways to display this information, but we'll use conventional axes. But before we jump in to the details of the D3 axis object, we need to address the lack of margins in our plot. Right now there's no space for an axis to live. We'll use Mike Bostock's margin convention, http://bl.ocks.org/mbostock/3019563.
+
+Step 7: Axes
+
+Our first goal is to draw a horizontal axis with appropriate tick marks to show the values. Our second goal is to print the name of each category to the left of its associated bar. You could draw all of these things yourself by doing a bunch of math and then appending SVG text and line elements, but that would be dumb. Use D3!

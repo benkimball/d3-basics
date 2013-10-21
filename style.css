@@ -7,16 +7,29 @@ body {
   background: white;
 }
 h1 {
-  font-family: sans-serif;
+  font-family: Helvetica;
   font-weight: normal;
   color: #fafafa;
 }
 
 /*
- * This rule applies to an SVG element, and therefore needs to use SVG
+ * These rules apply to SVG elements, and therefore need to use SVG
  * attributes.
  */
 .category {
   fill: steelblue;
   stroke: black;
+}
+.axis path, .axis line {
+  fill: none;
+  stroke: black;
+}
+.axis text {
+  font-family: Helvetica;
+}
+.x.axis text {
+  font-size: 10px;
+}
+.y.axis text {
+  font-size: 12px;
 }

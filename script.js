@@ -8,7 +8,7 @@ var canvas_width = 600,
     canvas_height = 300;
 
 /* d3 "Conventional Margins": http://bl.ocks.org/mbostock/3019563 */
-var margin = {top:20, right:10, bottom:20, left:10};
+var margin = {top:20, right:10, bottom:20, left:60};
 var width = canvas_width - margin.left - margin.right,
     height = canvas_height - margin.top - margin.bottom;
 var svg = d3.select("body").append("svg")
@@ -22,11 +22,28 @@ var svg = d3.select("body").append("svg")
  * Set up scales for the X and Y axes.
  */
 var x = d3.scale.linear()
-        .domain([0, 99])
+        .domain([0, 100])
         .rangeRound([0, width]),
     y = d3.scale.ordinal()
         .domain(category_names)
         .rangeRoundBands([0, height], .1);
+
+/*
+ * Set up SVG axes for the plot.
+ */
+var xAxis = d3.svg.axis().scale(x),
+    yAxis = d3.svg.axis().scale(y).orient('left');
+
+/*
+ * Draw the axes.
+ */
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0,"+height+")")
+    .call(xAxis);
+svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis);
 
 /*
  * Bind data to plot element, and for each unrepresented datum, draw a
