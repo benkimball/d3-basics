@@ -1,0 +1,10 @@
+<h1>How Many Things</h1>
+
+<% content_for :script_bottom do %>
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    var data = <%= @data.to_json.html_safe %>;
+    plot(data, {width: 600, height: 300});
+  });
+</script>
+<% end %>

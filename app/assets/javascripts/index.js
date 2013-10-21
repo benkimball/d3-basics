@@ -1,19 +1,3 @@
-/* Generate arbitrary counts for each of eight Tumblr post types */
-function load_data() {
-  var category_names = [
-    "video", "link", "photo", "audio", "chat", "quote", "answer", "text"
-  ]; 
-  function rnd_hist(labels) {
-    var hist = [], ct = 0;
-    labels.forEach(function(label) {
-      ct = Math.floor(Math.random()*100);
-      hist.push({category:label, count:ct});
-    });
-    return(hist);
-  }
-  return(rnd_hist(category_names))
-}
-
 /*
  * Plot a histogram of category counts.
  */
@@ -83,8 +67,5 @@ function plot(data, dimensions) {
       .attr("y", function(d) { return y(d.category); })
       .attr("height", y.rangeBand())
     .append("title")
-      .text(category)
-  
+      .text(category);
 }
-
-plot(load_data(), {width: 600, height: 300})

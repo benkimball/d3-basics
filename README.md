@@ -38,3 +38,8 @@ Nope, okay, so what changed? Well, we're now using the output of the y() functio
 So how do we fix it? First, for clarity, let's put all of our plotting code into a function and all of our data loading code into a different function. Now we just need to perform the data sort at the beginning of the plotting code.
 
 Finally, while we're cleaning things up, let's add an accessor functions for category, since we call that function repeatedly.
+
+Step 9: Dude, This Is Austin On RAILS
+
+Don't worry, I haven't forgotten. There are two places that Rails touches this code. The first is that presumably, Rails is serving the page that has this histogram on it, so your view file will need to include this javascript, and a script tag pointing to a CDN version of d3, along with a local backup in case of CDN failure, and all that normal boring stuff. The second, and more interesting, is that the data we are representing is also presumably coming from your models.
+

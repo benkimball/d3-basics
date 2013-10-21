@@ -1,0 +1,29 @@
+.plot {
+ shape-rendering: crispEdges;
+ background: white;
+}
+
+/*
+ * These rules apply to SVG elements, and therefore need to use SVG
+ * attributes.
+ */
+
+.category {
+  fill: steelblue;
+  stroke: black;
+}
+.axis {
+  path, line {
+    fill: none;
+    stroke: black;
+  }
+  text {
+    font-family: Helvetica;
+  }
+  &.x text {
+    font-size: 10px;
+  }
+  &.y text {
+    font-size: 12px;
+  }
+}
