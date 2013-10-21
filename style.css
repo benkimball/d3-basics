@@ -1,13 +1,15 @@
 body {
   text-rendering: optimizeLegibility;
+  background: #333;
 }
 .plot {
   shape-rendering: crispEdges;
+  background: white;
 }
 h1 {
   font-family: sans-serif;
   font-weight: normal;
-  color: #444;
+  color: #fafafa;
 }
 
 /*

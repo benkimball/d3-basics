@@ -4,8 +4,19 @@ var category_names = [
 ]; 
 var data = rnd_hist(category_names);
 
-var width = 600,
-    height = 300;
+var canvas_width = 600,
+    canvas_height = 300;
+
+/* d3 "Conventional Margins": http://bl.ocks.org/mbostock/3019563 */
+var margin = {top:20, right:10, bottom:20, left:10};
+var width = canvas_width - margin.left - margin.right,
+    height = canvas_height - margin.top - margin.bottom;
+var svg = d3.select("body").append("svg")
+    .attr("class", "plot")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 /*
  * Set up scales for the X and Y axes.
@@ -16,12 +27,6 @@ var x = d3.scale.linear()
     y = d3.scale.ordinal()
         .domain(category_names)
         .rangeRoundBands([0, height], .1);
-
-/* Create SVG element */
-var svg = d3.select("body").append("svg")
-    .attr("class", "plot")
-    .attr("width", width)
-    .attr("height", height);
 
 /*
  * Bind data to plot element, and for each unrepresented datum, draw a
