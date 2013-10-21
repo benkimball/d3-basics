@@ -1,13 +1,27 @@
 /* Generate arbitrary counts for each of eight Tumblr post types */
-var data = rnd_hist([
+var category_names = [
   "video", "link", "photo", "audio", "chat", "quote", "answer", "text"
-]);
+]; 
+var data = rnd_hist(category_names);
+
+var width = 600,
+    height = 300;
+
+/*
+ * Set up scales for the X and Y axes.
+ */
+var x = d3.scale.linear()
+        .domain([0, 99])
+        .rangeRound([0, width]),
+    y = d3.scale.ordinal()
+        .domain(category_names)
+        .rangeRoundBands([0, height], .1);
 
 /* Create SVG element */
 var svg = d3.select("body").append("svg")
     .attr("class", "plot")
-    .attr("width", 600)
-    .attr("height", 300);
+    .attr("width", width)
+    .attr("height", height);
 
 /*
  * Bind data to plot element, and for each unrepresented datum, draw a
@@ -19,9 +33,9 @@ svg.selectAll(".category")
   .enter().append("rect")
     .attr("class", "category")
     .attr("x", 0)
-    .attr("width", function(d) { return d.count; })
-    .attr("y", function(d, i) { return i * 20; })
-    .attr("height", 10)
+    .attr("width", function(d) { return x(d.count); })
+    .attr("y", function(d) { return y(d.category); })
+    .attr("height", y.rangeBand());
 
 
 /* ******************************************************************

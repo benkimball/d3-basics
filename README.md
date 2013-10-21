@@ -1,13 +1,22 @@
 Progressive Enhancement
 Or, Only Do Little Bits At A Time
 
-Begin with local data. Generate one paragraph per datum, display data as content of paragraph tag. :step1:
+Step 1: Hello, World.
 
-Hey, those aren't in alphabetical order! I want to sort them. :step2:
+Begin with local data. Generate one paragraph per datum, display data as content of paragraph tag.
 
-OK, but I want a histogram plot, not a bunch of text. To create a plot, we're going to need to transform the data into SVG elements instead of HTML elements. Our initial goal is a column of rectangles. To plot a rectangle, we need to know where its top-left corner is, plus its height and width. :step3:
+Step 2: Sorting
 
-Sidebar: Browsers Apply CSS To SVG Elements
+Hey, those aren't in alphabetical order! I want to sort them.
 
-This plot is ugly. Let's make it a little easier on the eyes. Hey, we can just use CSS! :step4:
+Step 3: Generating SVG
 
+OK, but I want a histogram plot, not a bunch of text. To create a plot, we're going to need to transform the data into SVG elements instead of HTML elements. Our initial goal is a column of rectangles. To plot a rectangle, we need to know where its top-left corner is, plus its height and width.
+
+Step 4: Browsers Apply CSS To SVG Elements
+
+This plot is ugly. Let's make it a little easier on the eyes. Hey, we can just use CSS!
+
+Step 5: Scales
+
+We've got a lot of magic numbers in our script. Each bar is a fixed height and placed at a fixed y-location regardless of the size of the plot. And each bar's width in pixels is exactly equal to its count. If we want to change the size of the plot, we'll have to recalculate all of those numbers by hand. D3 provides scale objects that will do a much better job of determining where our rectangles should be placed. Notice that the top border of the top bar has reappeared. Try changing the values of width and height.
