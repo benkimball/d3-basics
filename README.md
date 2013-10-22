@@ -45,8 +45,4 @@ Don't worry, I haven't forgotten. There are two places that Rails touches this c
 
 Step 10: Loading resources with D3
 
-Often, you already have the data you need in memory during the request, and so this method of printing the data directly into the view makes sense. Why make an extra HTTP call from the page to fetch data that is already known at page rendering time? And in this case, there's no need to use anything but the enter() selection, because the data never change.
-
-But that's no fun. Plus I want to show you the full data selection cycle. So let's now suppose that this histogram changes constantly, and so we want to poll the server every few seconds to fetch new data, and update our histogram accordingly.
-
-First, we'll do this without any polling, simply by replacing our current print-data-into-script methodology with an actual AJAX call from D3 to retrieve the data to plot.
+Often, you already have the data you need in memory during the request, and so this method of printing the data directly into the view makes sense. Why make an extra HTTP call from the page to fetch data that is already known at page rendering time? But for the sake of argument let's suppose that you want to load the data up at some time after the initial request has completed. We simply replace our current print-data-into-script methodology with an actual AJAX call from D3 to retrieve the data to plot.
