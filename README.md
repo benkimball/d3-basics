@@ -43,4 +43,10 @@ Step 9: Dude, This Is Austin On RAILS
 
 Don't worry, I haven't forgotten. There are two places that Rails touches this code. The first is that presumably, Rails is serving the page that has this histogram on it, so your view file will need to include this javascript, and a script tag pointing to a CDN version of d3, along with a local backup in case of CDN failure, and all that normal boring stuff. The second, and more interesting, is that the data we are representing is also presumably coming from your models. For now, let's just move the generation of arbitrary data into the controller, removing that part of the JavaScript, and print it directly into the data variable declaration in the view.
 
+Step 10: Loading resources with D3
 
+Often, you already have the data you need in memory during the request, and so this method of printing the data directly into the view makes sense. Why make an extra HTTP call from the page to fetch data that is already known at page rendering time? And in this case, there's no need to use anything but the enter() selection, because the data never change.
+
+But that's no fun. Plus I want to show you the full data selection cycle. So let's now suppose that this histogram changes constantly, and so we want to poll the server every few seconds to fetch new data, and update our histogram accordingly.
+
+First, we'll do this without any polling, simply by replacing our current print-data-into-script methodology with an actual AJAX call from D3 to retrieve the data to plot.

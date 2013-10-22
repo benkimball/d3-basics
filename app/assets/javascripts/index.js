@@ -1,4 +1,14 @@
 /*
+ * Retrieve JSON data from +endpoint+, then plot it.
+ */
+function remote_plot(endpoint, dimensions) {
+  d3.json(endpoint, function(err, data) {
+    if(err) return console.warn(err);
+    plot(data, dimensions);
+  });
+}
+
+/*
  * Plot a histogram of category counts.
  */
 function plot(data, dimensions) {
@@ -12,7 +22,7 @@ function plot(data, dimensions) {
     else if(a.category < b.category) return -1;
     return 0;
   }
-  
+
   data = data.sort(category_order);
 
   /* d3 "Conventional Margins": http://bl.ocks.org/mbostock/3019563 */
